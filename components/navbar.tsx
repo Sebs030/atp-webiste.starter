@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import Link from "next/link"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
@@ -8,6 +8,7 @@ import {
   SheetContent,
   SheetClose,
   SheetTitle,
+  SheetTrigger,
 } from "@/components/ui/sheet"
 
 const navLinks = [
@@ -17,14 +18,12 @@ const navLinks = [
 ]
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
-
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
-        <a href="/" className="text-lg font-semibold tracking-tight">
+        <Link href="/" className="text-lg font-semibold tracking-tight">
           Acme Co.
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-8 md:flex">
@@ -44,15 +43,18 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <div className="md:hidden">
-          <Sheet open={open} onOpenChange={setOpen}>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setOpen(true)}
-              aria-label="Open menu"
+          <Sheet>
+            <SheetTrigger
+              render={
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Open navigation menu"
+                />
+              }
             >
-              <Menu />
-            </Button>
+              <Menu aria-hidden="true" />
+            </SheetTrigger>
             <SheetContent side="left">
               <SheetTitle className="sr-only">Navigation</SheetTitle>
               <div className="flex flex-col gap-6 p-6 pt-10">

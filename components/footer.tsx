@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Globe } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 
@@ -33,12 +34,12 @@ export default function Footer() {
             <ul className="flex flex-col gap-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
