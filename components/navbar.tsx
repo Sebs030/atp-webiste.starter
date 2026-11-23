@@ -36,7 +36,7 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <Button size="sm" render={<a href="#contact" />}>
+          <Button size="sm" nativeButton={false} render={<a href="#contact" />}>
             Get in Touch
           </Button>
         </nav>

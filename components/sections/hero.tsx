@@ -20,10 +20,10 @@ export default function Hero() {
       </p>
 
       <div className="flex flex-wrap justify-center gap-4">
-        <Button size="lg" render={<a href="#contact" />}>
+        <Button size="lg" nativeButton={false} render={<a href="#contact" />}>
           Get Started
         </Button>
-        <Button size="lg" variant="outline" render={<a href="#services" />}>
+        <Button size="lg" variant="outline" nativeButton={false} render={<a href="#services" />}>
           Learn More
         </Button>
       </div>
